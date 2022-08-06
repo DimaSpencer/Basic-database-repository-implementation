@@ -3,10 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DSp.BasicRepositoryImplementation.Infrastructure.Implementations
 {
-
-
     public abstract class EfDbRepository<TEntity, TKey> : IDbRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
+        where TKey : IEquatable<TKey>
     {
         private readonly DbContext _dbContext;
         private readonly IDynamicFilterService _filterService;
